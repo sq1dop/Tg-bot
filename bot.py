@@ -119,5 +119,21 @@ async def on_payment_success(message: Message):
 async def main():
     await dp.start_polling(bot)
 
+# --- ВРЕМЕННАЯ КОМАНДА ДЛЯ ТЕСТА (УДАЛИТЬ ПОСЛЕ ПРОВЕРКИ!) ---
+@dp.message(Command("fake_pay"))
+async def fake_payment(message: Message):
+    # Имитируем структуру успешного платежа
+    fake_payment_data = type('obj', (object,), {
+        'invoice_payload': 'channel_access_250'
+    })
+    
+    fake_message = message.model_copy(update={
+        'successful_payment': fake_payment_data
+    })
+    
+    # Вызываем нашу функцию выдачи
+    await on_payment_success(fake_message)
+# -------------------------------------------------------------
+
 if __name__ == "__main__":
     asyncio.run(main())
