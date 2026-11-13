@@ -21,7 +21,7 @@ CHECK_CHANNEL_ID = -1004376383753
 PAID_CHANNEL_ID = -1003947566657
 
 # Ссылка на обязательный канал (для кнопки "Подписаться")
-CHECK_CHANNEL_LINK = https://t.me/gtavitt
+CHECK_CHANNEL_LINK = "https://t.me/gtavitt"
 # Цена в звёздах
 PRICE = 250
 
